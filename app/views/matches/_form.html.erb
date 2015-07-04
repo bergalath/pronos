@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= f.label :competition_id %><br>
-    <%= f.number_field :competition_id %>
+    <%= f.collection_select :competition_id, Competition.all, :id, :name, prompt: t('matches.choose_compet') %>
   </div>
   <div class="field">
     <%= f.label :local_id %><br>

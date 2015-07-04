@@ -1,0 +1,26 @@
+<tr>
+  <td>
+    <strong>Local:</strong>
+    <%= match.local.try(:country) %>
+  </td>
+
+  <td>
+    <strong>Visitor:</strong>
+    <%= match.visitor.try(:country) %>
+  </td>
+
+  <td>
+    <strong>Local score:</strong>
+    <%= match.local_score %>
+  </td>
+
+  <td>
+    <strong>Visitor score:</strong>
+    <%= match.visitor_score %>
+  </td>
+
+  <td>
+    <strong>Begin at:</strong>
+    <%= match.begin_at %>
+  </td>
+</tr>
