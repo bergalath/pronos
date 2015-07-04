@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  country: MyString
+  local_color: MyString
+  external_color: MyString
+
+two:
+  country: MyString
+  local_color: MyString
+  external_color: MyString

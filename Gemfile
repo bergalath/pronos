@@ -43,3 +43,4 @@ group :development, :test do
   gem 'spring'
 end
 
+gem 'country_select', github: 'stefanpenner/country_select'

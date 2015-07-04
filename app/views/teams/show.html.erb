@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Country:</strong>
+  <%= @team.country %>
+</p>
+
+<p>
+  <strong>Local color:</strong>
+  <%= @team.local_color %>
+</p>
+
+<p>
+  <strong>External color:</strong>
+  <%= @team.external_color %>
+</p>
+
+<%= link_to 'Edit', edit_team_path(@team) %> |
+<%= link_to 'Back', teams_path %>
