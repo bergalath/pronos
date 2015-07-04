@@ -1,0 +1,41 @@
+<%= form_for(@match) do |f| %>
+  <% if @match.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@match.errors.count, "error") %> prohibited this match from being saved:</h2>
+
+      <ul>
+      <% @match.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :competition_id %><br>
+    <%= f.number_field :competition_id %>
+  </div>
+  <div class="field">
+    <%= f.label :local_id %><br>
+    <%= f.number_field :local_id %>
+  </div>
+  <div class="field">
+    <%= f.label :visitor_id %><br>
+    <%= f.number_field :visitor_id %>
+  </div>
+  <div class="field">
+    <%= f.label :local_score %><br>
+    <%= f.number_field :local_score %>
+  </div>
+  <div class="field">
+    <%= f.label :visitor_score %><br>
+    <%= f.number_field :visitor_score %>
+  </div>
+  <div class="field">
+    <%= f.label :begin_at %><br>
+    <%= f.datetime_select :begin_at %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
