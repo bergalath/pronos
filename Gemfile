@@ -44,3 +44,5 @@ group :development, :test do
 end
 
 gem 'country_select', github: 'stefanpenner/country_select'
+
+gem 'foundation-rails'

@@ -21,7 +21,7 @@ class CompetitionsControllerTest < ActionController::TestCase
       post :create, competition: { country: @competition.country, name: @competition.name, year: @competition.year }
     end
 
-    assert_redirected_to competition_path(assigns(:competition))
+    assert_redirected_to competitions_path
   end
 
   test "should show competition" do
