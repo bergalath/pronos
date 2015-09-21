@@ -1,11 +1,14 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+fr:
+  country: France
+  local_color: 00f
+  external_color: fff
 
-one:
-  country: MyString
-  local_color: MyString
-  external_color: MyString
+ja:
+  country: 日本
+  local_color: f00
+  external_color: ff0
 
-two:
-  country: MyString
-  local_color: MyString
-  external_color: MyString
+en:
+  country: England
+  local_color: 700
+  external_color: 7f0

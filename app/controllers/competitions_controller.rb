@@ -1,34 +1,26 @@
 class CompetitionsController < ApplicationController
   before_action :set_competition, only: [:show, :edit, :update, :destroy]
 
-  # GET /competitions
-  # GET /competitions.json
   def index
     @competitions = Competition.all
   end
 
-  # GET /competitions/1
-  # GET /competitions/1.json
   def show
   end
 
-  # GET /competitions/new
   def new
     @competition = Competition.new
   end
 
-  # GET /competitions/1/edit
   def edit
   end
 
-  # POST /competitions
-  # POST /competitions.json
   def create
     @competition = Competition.new(competition_params)
 
     respond_to do |format|
       if @competition.save
-        format.html { redirect_to competitions_url, notice: 'Competition was successfully created.' }
+        format.html { redirect_to competitions_path, notice: t('competition.create') }
         format.json { render :show, status: :created, location: @competition }
       else
         format.html { render :new }
@@ -37,12 +29,10 @@ class CompetitionsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /competitions/1
-  # PATCH/PUT /competitions/1.json
   def update
     respond_to do |format|
       if @competition.update(competition_params)
-        format.html { redirect_to competitions_url, notice: t('competition.update') }
+        format.html { redirect_to competitions_path, notice: t('competition.update') }
         format.json { render :show, status: :ok, location: @competition }
       else
         format.html { render :edit }
@@ -51,12 +41,10 @@ class CompetitionsController < ApplicationController
     end
   end
 
-  # DELETE /competitions/1
-  # DELETE /competitions/1.json
   def destroy
     @competition.destroy
     respond_to do |format|
-      format.html { redirect_to competitions_url, notice: 'Competition was successfully destroyed.' }
+      format.html { redirect_to competitions_path, notice: 'Competition was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

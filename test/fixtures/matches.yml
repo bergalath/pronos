@@ -1,17 +1,15 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
-one:
-  competition_id: 1
-  local_id: 1
-  visitor_id: 1
+round_one:
+  competition: fwc_1998
+  local: fr
+  visitor: ja
   local_score: 1
   visitor_score: 1
-  begin_at: 2015-07-04 16:46:54
+  begin_at: <%= 2.days.from_now %>
 
-two:
-  competition_id: 1
-  local_id: 1
-  visitor_id: 1
-  local_score: 1
+round_two:
+  competition: fwc_1998
+  local: fr
+  visitor: en
+  local_score: 2
   visitor_score: 1
-  begin_at: 2015-07-04 16:46:54
+  begin_at: <%= 4.days.from_now %>
