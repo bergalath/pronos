@@ -1,47 +1,52 @@
 require 'test_helper'
 
 class CompetitionsControllerTest < ActionController::TestCase
-  setup do
-    @competition = competitions(:one)
+  fixtures :competitions
+
+  def competition
+    @competition ||= competitions(:wwc_2015)
   end
 
-  test "should get index" do
+  test 'should get index' do
     get :index
     assert_response :success
     assert_not_nil assigns(:competitions)
   end
 
-  test "should get new" do
+  test 'should get new' do
     get :new
     assert_response :success
   end
 
-  test "should create competition" do
+  test 'should create competition' do
     assert_difference('Competition.count') do
-      post :create, competition: { country: @competition.country, name: @competition.name, year: @competition.year }
+      post :create, competition: { country: 'JP', name: 'Compet’s name', year: '2013' }
     end
 
-    assert_redirected_to competition_path(assigns(:competition))
+    assert_redirected_to competitions_path
   end
 
-  test "should show competition" do
-    get :show, id: @competition
+  test 'should show competition' do
+    get :show, id: competition
     assert_response :success
   end
 
-  test "should get edit" do
-    get :edit, id: @competition
+  test 'should get edit' do
+    get :edit, id: competition
     assert_response :success
   end
 
-  test "should update competition" do
-    patch :update, id: @competition, competition: { country: @competition.country, name: @competition.name, year: @competition.year }
-    assert_redirected_to competition_path(assigns(:competition))
+  test 'should update competition' do
+    assert_no_difference('Competition.count') do
+      patch :update, id: competition, competition: { country: competition.country, name: competition.name, year: competition.year }
+    end
+
+    assert_redirected_to competitions_path
   end
 
-  test "should destroy competition" do
+  test 'should destroy competition' do
     assert_difference('Competition.count', -1) do
-      delete :destroy, id: @competition
+      delete :destroy, id: competition
     end
 
     assert_redirected_to competitions_path

@@ -1,49 +1,54 @@
 require 'test_helper'
 
 class MatchesControllerTest < ActionController::TestCase
+  fixtures :matches, :teams
+  attr_reader :local_team, :visitor_team, :match
+
   setup do
-    @match = matches(:one)
+    @local_team   ||= teams(:fr)
+    @visitor_team ||= teams(:ja)
+    @match        ||= matches(:round_one)
   end
 
-  test "should get index" do
+  test 'should get index' do
     get :index
     assert_response :success
     assert_not_nil assigns(:matches)
   end
 
-  test "should get new" do
+  test 'should get new' do
     get :new
     assert_response :success
   end
 
-  test "should create match" do
+  test 'should create match' do
     assert_difference('Match.count') do
-      post :create, match: { begin_at: @match.begin_at, competition_id: @match.competition_id, local_id: @match.local_id, local_score: @match.local_score, visitor_id: @match.visitor_id, visitor_score: @match.visitor_score }
+      post :create, match: { competition_id: match.competition, local_id: local_team, visitor_id: visitor_team, begin_at: 2.days.from_now }
     end
 
-    assert_redirected_to match_path(assigns(:match))
+    assert_redirected_to match.competition
   end
 
-  test "should show match" do
-    get :show, id: @match
+  test 'should show match' do
+    get :show, id: match
     assert_response :success
   end
 
-  test "should get edit" do
-    get :edit, id: @match
+  test 'should get edit' do
+    get :edit, id: match
     assert_response :success
   end
 
-  test "should update match" do
-    patch :update, id: @match, match: { begin_at: @match.begin_at, competition_id: @match.competition_id, local_id: @match.local_id, local_score: @match.local_score, visitor_id: @match.visitor_id, visitor_score: @match.visitor_score }
-    assert_redirected_to match_path(assigns(:match))
+  test 'should update match' do
+    patch :update, id: match, match: { local_score: 2, visitor_score: 3 }
+    assert_redirected_to match.competition
   end
 
-  test "should destroy match" do
+  test 'should destroy match' do
     assert_difference('Match.count', -1) do
-      delete :destroy, id: @match
+      delete :destroy, id: match
     end
 
-    assert_redirected_to matches_path
+    assert_redirected_to match.competition
   end
 end

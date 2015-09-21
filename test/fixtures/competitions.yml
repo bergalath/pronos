@@ -1,11 +1,14 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+wwc_2015:
+  name: Women’s World Cup
+  country: CA
+  year: 2015
 
-one:
-  name: MyString
-  country: MyString
-  year: 1
+rwc_2015:
+  name: Rugby World Cup
+  country: GB
+  year: 2015
 
-two:
-  name: MyString
-  country: MyString
-  year: 1
+fwc_1998:
+  name: World Cup 1998
+  country: FR
+  year: 1998
